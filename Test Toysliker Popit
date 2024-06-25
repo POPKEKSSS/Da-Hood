@@ -67,7 +67,30 @@ MoreSection:NewButton("Upgrade V1", "İtem", function()
             
             game:GetService("ReplicatedStorage").Functions.Fuse.FuseRF:InvokeServer(unpack(args))
             end)    
+           
+--Rainbow
+local Rainbow = Window:NewTab("Rainbow V1")
+local RainbowSection = Rainbow:NewSection("Make rainbow and golden Pets requires 6")
 
+RainbowSection:NewButton("make rainbow İtems", "ButtonInfo", function()
+    local args = {
+        [1] = "20011",
+        [2] = 6,
+        [3] = "Rainbow"
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("Upgrade"):WaitForChild("UpgradeRF"):InvokeServer(unpack(args))
+end)
+    
+    RainbowSection:NewButton("make golden İtems", "ButtonInfo", function()
+        local args = {
+            [1] = "10011",
+            [2] = 6,
+            [3] = "Golden"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("Upgrade"):WaitForChild("UpgradeRF"):InvokeServer(unpack(args))
+    end)
             
 --fuse
 local fuse = Window:NewTab("Fuse V2")
