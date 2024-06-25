@@ -211,6 +211,8 @@ ColoredSection:NewButton("Buy colored Sword ninja", "Requires idk", function()
         [3] = 1
     }
 
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
 
 ColoredSection:NewButton("Buy colored Fly Lizard", "Requires idk", function()
     local args = {
@@ -219,6 +221,10 @@ ColoredSection:NewButton("Buy colored Fly Lizard", "Requires idk", function()
         [3] = 1
     }
 
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+     
 ColoredSection:NewButton("Buy colored Fly  Deer", "Requires idk", function()
     local args = {
         [1] = "purchase",
