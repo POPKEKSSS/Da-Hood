@@ -22,9 +22,3 @@ Section:NewButton("Inxta", "Buys The Inxta Code Item.", function() local args = 
 Section:NewButton("Tweet", "Buys The Tweet Code Item.", function() local args = { [1] = "Tweet" } game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCash:FireServer(unpack(args)) end)  
 Section:NewButton("Tix Tox", "Buys The Tix Tox Code Item.", function() local args = { [1] = "Tix Tox" } game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCash:FireServer(unpack(args)) end)  
 Section:NewButton("Silver Playbutton", "Buys The Silver PlayButton.", function() local args = { [1] = "Silver" } game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCash:FireServer(unpack(args)) end)
---Buttons
-Tab2Section:NewButton("Infinite Yield", "Executes Infiniteyield", function()
-
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
-
-end)
