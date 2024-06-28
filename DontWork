@@ -17,3 +17,13 @@ Section:NewToggle("Auto Buy Retro Bike", "Auto Retro Bike", function(state) if s
 Section:NewToggle("Auto Buy Talky", "Auto Talky", function(state) if state then _G.on = true while _G.on do wait() local args = { [1] = "Walky Talky" } game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCash:FireServer(unpack(args)) end else _G.on = false end end) 
 Section:NewToggle("Auto Buy Green Ooze", "Auto Green Ooze", function(state) if state then _G.on = true while _G.on do wait() local args = { [1] = "Green Ooze" } game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCash:FireServer(unpack(args)) end else _G.on = false end end)  
 Section:NewToggle("Auto Silver PlayButton", "Auto PlayButton", function(state) if state then _G.on = true while _G.on do wait() local args = { [1] = "Silver" } game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCash:FireServer(unpack(args)) end else _G.on = false end end)
+
+local Tab = Window:NewTab("Script") local Section = Tab:NewSection("Robux Cash Shop")
+Tab2Section:NewButton("Trade Value", "Gives you trade value", function()
+    game.Players.localPlayer.XRay.Value = true
+end)
+Tab2Section:NewButton("rejoin server", "rejoins the server", function()
+    game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+end)
+Tab2Section:NewButton("Farx Script", "Farx Script", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/Farx11122/Dupess/main/DupeSsv2"))() end)
+
