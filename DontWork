@@ -27,7 +27,13 @@ Section:NewToggle("Auto Buy A", "Auto A", function(state) if state then _G.on = 
 Section:NewToggle("Auto Buy Lem", "Auto Lem", function(state) if state then _G.on = true while _G.on do wait() local args = { [1] = "Box Toy Lem" } game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCash:FireServer(unpack(args)) end else _G.on = false end end) 
 Section:NewToggle("Auto Buy Controller", "Auto Controller", function(state) if state then _G.on = true while _G.on do wait() local args = { [1] = "XOX Controller" } game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCash:FireServer(unpack(args)) end else _G.on = false end end) 
 
-	Library:ToggleUI()end)  Section:NewLabel("Alphabets!")  Section:NewButton("A", "1K", function() local args = { [1] = "A" } game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCash:FireServer(unpack(args)) end)  Section:NewButton("B", "100", function() local args = { [1] = "B" } game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCash:FireServer(unpack(args)) end)  Section:NewButton("C", "20", function() local args = { [1] = "C" } game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCash:FireServer(unpack(args)) end)  Section:NewButton("D", "50", function() local args = { [1] = "D" } game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCash:FireServer(unpack(args)) end)  local Section = Tab:NewSection("Fake Drop🤡")  Section:NewButton("Fake Drop", "OP Fake Drop ", function()
+	Library:ToggleUI()end)  Section:NewLabel("Alphabets!")  
+Section:NewButton("A", "1K", function() local args = { [1] = "A" } game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCash:FireServer(unpack(args)) end)  
+Section:NewButton("B", "100", function() local args = { [1] = "B" } game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCash:FireServer(unpack(args)) end)  
+Section:NewButton("C", "20", function() local args = { [1] = "C" } game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCash:FireServer(unpack(args)) end)  
+Section:NewButton("D", "50", function() local args = { [1] = "D" } game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCash:FireServer(unpack(args)) end)  
+local Section = Tab:NewSection("Fake Drop🤡")  
+Section:NewButton("Fake Drop", "OP Fake Drop ", function()
 
     local plr = game.Players.LocalPlayer
 
