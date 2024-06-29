@@ -1,1 +1,23 @@
+local TweenService = game:GetService("TweenService")
+local Frame = script.Parent
 
+local function SimpleTween(Object, Length, Style, Direction, Properties)
+	local Tween = TweenService:Create(
+		Object,
+		TweenInfo.new(Length, Enum.EasingStyle[Style].Value, Enum.EasingDirection[Direction].Value),
+		Properties
+	)
+	
+	Tween:Play()
+	Tween.Completed:Wait()
+	Tween:Destroy()
+end
+
+while true do
+	SimpleTween(Frame, 1, "Linear", "Out", { BackgroundColor3 = Color3.new() })
+	SimpleTween(Frame, 1, "Linear", "Out", { BackgroundColor3 = Color3.new() })
+	SimpleTween(Frame, 1, "Linear", "Out", { BackgroundColor3 = Color3.new() })
+	SimpleTween(Frame, 1, "Linear", "Out", { BackgroundColor3 = Color3.new() })
+	SimpleTween(Frame, 1, "Linear", "Out", { BackgroundColor3 = Color3.new() })
+	SimpleTween(Frame, 1, "Linear", "Out", { BackgroundColor3 = Color3.new() })
+end
