@@ -1,4 +1,4 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
 local Window = Library.CreateLib("Toysliker Pop İt Trading", "Synapse") 
 local Tab = Window:NewTab("Event İtem Shop") local Section = Tab:NewSection("Event İtem Shop") 
 Section:NewButton("10163", "50", function() local args = { [1] = "10163" } game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCoin:FireServer(unpack(args)) end)
