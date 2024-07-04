@@ -23,16 +23,64 @@ local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Gia
 local Window = OrionLib:MakeWindow({IntroText = "Pop it Trading ✨", IntroIcon = "rbxassetid://15315284749",Name = ("Pop it Trading ✨".." | ".. identifyexecutor()),IntroToggleIcon = "rbxassetid://7734091286", HidePremium = false, SaveConfig = false, IntroEnabled = true, ConfigFolder = "pop it trading"})
 local Tab = Window:NewTab("Pop it Trading ✨") local Section = Tab:NewSection("Pop it Trading ✨") 
 
----Bypass---
+local Tab = Window:MakeTab({
+	Name = "Info",
+	Icon = "rbxassetid://7734053426",
+	PremiumOnly = false
+})
 
-local Namecall
-Namecall = hookmetamethod(game, "__namecall", function(self, ...)
-   if getnamecallmethod() == "FireServer" and tostring(self) == "Ban" then
-       return
-   elseif getnamecallmethod() == "FireServer" and tostring(self) == "WalkSpeedChanged" then
-       return
-   elseif getnamecallmethod() == "FireServer" and tostring(self) == "AdminGUI" then
-       return
-   end
-   return Namecall(self, ...)
-end)
+local Tab1 = Window:MakeTab({
+	Name = "Script",
+	Icon = "rbxassetid://8997387937",
+	PremiumOnly = false
+})
+
+local Tab2 = Window:MakeTab({
+	Name = "Anti",
+	Icon = "rbxassetid://7734056608",
+	PremiumOnly = false
+})
+
+local Tab3 = Window:MakeTab({
+	Name = "Badges",
+	Icon = "rbxassetid://7733673987",
+	PremiumOnly = false
+})
+
+local Tab5 = Window:MakeTab({
+	Name = "Local",
+	Icon = "rbxassetid://4335489011",
+	PremiumOnly = false
+})
+
+local Tab7 = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://4370318685",
+	PremiumOnly = false
+})
+
+local Tab14 = Window:MakeTab({
+	Name = "Gloves Optional",
+	Icon = "rbxassetid://7733955740",
+	PremiumOnly = false
+})
+
+local Tab11 = Window:MakeTab({
+	Name = "Troller",
+	Icon = "rbxassetid://7733917120",
+	PremiumOnly = false
+})
+
+local Tab15 = Window:MakeTab({
+	Name = "Credit",
+	Icon = "rbxassetid://7733955511",
+	PremiumOnly = false
+})
+
+local Tab60 = Window:MakeTab({
+	Name = "Notify Update",
+	Icon = "rbxassetid://7733771472",
+	PremiumOnly = false
+})
+
+Tab:AddParagraph("Popkeksss | Discord"," [ Popkeksss]: Popkeksss | [ Discord ]: Popkeksss, go to the credits section ] | Good Luck")
