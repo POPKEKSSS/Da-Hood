@@ -1,100 +1,82 @@
-if not game:IsLoaded() then
-    game.Loaded:Wait()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Pop it Trading ✨", "Ocean")
+local Tab = Window:NewTab("Popkek")
+local Section = Tab:NewSection("Section Name")
+Section:UpdateSection("Section New Title")
+Section:NewLabel("LabelText")
+label:UpdateLabel("New Text")
+Section:NewButton("ButtonText", "ButtonInfo", function()
+    print("Clicked")
+end)
+button:UpdateButton("New Text")
+Section:NewToggle("ToggleText", "ToggleInfo", function(state)
+    if state then
+        print("Toggle On")
+    else
+        print("Toggle Off")
+    end
+end)
+getgenv().Toggled = false
+
+local toggle = Section:NewToggle("Toggle", "Info", (state)
+    getgenv().Toggled = state
+end)
+
+game:GetService("RunService").RenderStepped:Connect(function()
+	if getgenv().Toggled then
+		toggle:UpdateToggle("Toggle On")
+	else
+		toggle:UpdateToggle("Toggle Off")
+	end
+end)
+Section:NewSlider("SliderText", "SliderInfo", 500, 0, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.F, function()
+	print("You just clicked the bind")
+end)
+Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
+Library:ToggleUIGui({
+      Icons = "rbxassetid://4384403532"
+})
+
+--[[  Library:ToggleUIGui({Icons = "rbxassetid://4384403532"})  ]]--
+Section:NewDropdown("DropdownText", "DropdownInf", {"Option 1", "Option 2", "Option 3"}, function(currentOption)
+    print(currentOption)
+end)
+local oldList = {
+  "2019",
+  "2020"
+}
+local newList = {
+  "2021",
+  "2022"
+}
+local dropdown = Section:NewDropdown("Dropdown","Info", oldList, function()
+
+end)
+
+Section:NewButton("Update Dropdown", "Refreshes Dropdown", function()
+  dropdown:Refresh(newList)
+end)
+
+Section:NewButton("Update Dropdown", "Refreshes Dropdown", function()
+  dropdown:Refresh(oldList)
+end)
+Section:NewColorPicker("ColorText", "ColorInfo", Color3.fromRGB(0,0,0), function(color)
+    print(color)
+end)
+local colors = {
+    SchemeColor = Color3.fromRGB(0,255,255),
+    Background = Color3.fromRGB(0, 0, 0),
+    Header = Color3.fromRGB(0, 0, 0),
+    TextColor = Color3.fromRGB(255,255,255),
+    ElementColor = Color3.fromRGB(20, 20, 20)
+}
+for theme, color in pairs(themes) do
+    Section:NewColorPicker(theme, "Change your "..theme, color, function(color3)
+        Library:ChangeColor(theme, color3)
+    end)
 end
-
-if _G.AutoExecuter == true then
-local ScriptSpawn = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
-if ScriptSpawn then
-    ScriptSpawn([[
-if not game:IsLoaded() then
-    game.Loaded:Wait()
-end
-repeat wait() until game.Players.LocalPlayer
-wait(0.25)
-_G.AutoExecuter = true
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Slap_Battles/main/Slap_Battles.lua"))()
-    ]])
-end
-end
-
-game:GetService("GuiService"):ClearError()
-
-local OrionLib = loadstring(game:HttpGetAsync("https://https://raw.githubusercontent.com/Giangplay/Script/main/Kavo.lua"))()
-local Window = OrionLib:MakeWindow({IntroText = "Pop it Trading ✨", IntroIcon = "rbxassetid://15315284749",Name = ("Pop it Trading ✨".." | ".. identifyexecutor()),IntroToggleIcon = "rbxassetid://7734091286", HidePremium = false, SaveConfig = false, IntroEnabled = true, ConfigFolder = "pop it trading"})
-local Tab = Window:NewTab("Pop it Trading ✨") local Section = Tab:NewSection("Pop it Trading ✨") 
-
-local Tab = Window:MakeTab({
-	Name = "Info",
-	Icon = "rbxassetid://7734053426",
-	PremiumOnly = false
-})
-
-local Tab1 = Window:MakeTab({
-	Name = "Script",
-	Icon = "rbxassetid://8997387937",
-	PremiumOnly = false
-})
-
-local Tab2 = Window:MakeTab({
-	Name = "Anti",
-	Icon = "rbxassetid://7734056608",
-	PremiumOnly = false
-})
-
-local Tab3 = Window:MakeTab({
-	Name = "Badges",
-	Icon = "rbxassetid://7733673987",
-	PremiumOnly = false
-})
-
-local Tab5 = Window:MakeTab({
-	Name = "Local",
-	Icon = "rbxassetid://4335489011",
-	PremiumOnly = false
-})
-
-local Tab7 = Window:MakeTab({
-	Name = "Misc",
-	Icon = "rbxassetid://4370318685",
-	PremiumOnly = false
-})
-
-local Tab14 = Window:MakeTab({
-	Name = "Gloves Optional",
-	Icon = "rbxassetid://7733955740",
-	PremiumOnly = false
-})
-
-local Tab11 = Window:MakeTab({
-	Name = "Troller",
-	Icon = "rbxassetid://7733917120",
-	PremiumOnly = false
-})
-
-local Tab15 = Window:MakeTab({
-	Name = "Credit",
-	Icon = "rbxassetid://7733955511",
-	PremiumOnly = false
-})
-
-local Tab60 = Window:MakeTab({
-	Name = "Notify Update",
-	Icon = "rbxassetid://7733771472",
-	PremiumOnly = false
-})
-
-Tab:AddParagraph("Popkeksss | Discord"," [ Popkeksss]: Popkeksss | [ Discord ]: Popkeksss, go to the credits section ] | Good Luck")
-
-Tab1:AddButton({
-	Name = "D Shript [ PE Delta ]",
-	Callback = function()
-      		loadstring(game:HttpGet("https://raw.githubusercontent.com/delta-hydro/secret-host-haha/main/syn_ui_new.lua"))()
-  	end    
-})
-
-Tab1:AddButton({
-	Name = "Scam [ PE ]",
-	Callback = function()
-      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Codex.lua"))()
-  	end    
-})
