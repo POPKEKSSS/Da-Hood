@@ -84,3 +84,17 @@ local Tab60 = Window:MakeTab({
 })
 
 Tab:AddParagraph("Popkeksss | Discord"," [ Popkeksss]: Popkeksss | [ Discord ]: Popkeksss, go to the credits section ] | Good Luck")
+
+Tab1:AddButton({
+	Name = "D Shript [ PE Delta ]",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/delta-hydro/secret-host-haha/main/syn_ui_new.lua"))()
+  	end    
+})
+
+Tab1:AddButton({
+	Name = "Scam [ PE ]",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Codex.lua"))()
+  	end    
+})
