@@ -19,7 +19,7 @@ end
 
 game:GetService("GuiService"):ClearError()
 
-local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Giangplay/Script/main/Orion_Library_PE_V2.lua")))()
+local OrionLib = loadstring(game:HttpGetAsync("https://https://raw.githubusercontent.com/Giangplay/Script/main/Kavo.lua"))()
 local Window = OrionLib:MakeWindow({IntroText = "Pop it Trading ✨", IntroIcon = "rbxassetid://15315284749",Name = ("Pop it Trading ✨".." | ".. identifyexecutor()),IntroToggleIcon = "rbxassetid://7734091286", HidePremium = false, SaveConfig = false, IntroEnabled = true, ConfigFolder = "pop it trading"})
 local Tab = Window:NewTab("Pop it Trading ✨") local Section = Tab:NewSection("Pop it Trading ✨") 
 
