@@ -18,9 +18,7 @@ local V2 = Vector2.new
 local V3 = Vector3.new
 local C3 = Color3.fromRGB
 
-getgenv().Sharp = {
-    ['Key'] = "", -- [ PASTE YOUR LUARMOR KEY BETWEEN THOSE SYMBOLS "" ]
-    ['Global'] = {
+       ['Global'] = {
         ['Death'] = {Self = true, Target = true},
         ['Checks'] = {
             ['Grabbed'] = true,
@@ -54,11 +52,7 @@ getgenv().Sharp = {
         ['Contrast'] = 0.06,
         ['Saturation'] = 0.9,
     },
-    ['Whitelists'] = {
-        ['RobloxIDs'] = {123456, 123456}, -- [5235648401]
-        ['FriendCheck'] = false,
-    },
+   
     
 }
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/supercoolboi34/sharpcc/main/loader"))()
