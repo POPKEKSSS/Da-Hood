@@ -55,7 +55,7 @@ getgenv().Sharp = {
         ['Saturation'] = 0.9,
     },
     ['Whitelists'] = {
-        ['RobloxIDs'] = {5235648401, 5235648401}, -- [Add Roblox Profile User IDs Here]
+        ['RobloxIDs'] = {123456, 123456}, -- [5235648401]
         ['FriendCheck'] = false,
     },
     
