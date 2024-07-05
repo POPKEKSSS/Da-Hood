@@ -19,7 +19,7 @@ local V3 = Vector3.new
 local C3 = Color3.fromRGB
 
 getgenv().Sharp = {
-    ['Key'] = "", -- [ a9d37ac24089b34c35039b7676c1aeb5 "" ]
+    ['Key'] = "", -- [ PASTE YOUR LUARMOR KEY BETWEEN THOSE SYMBOLS "" ]
     ['Global'] = {
         ['Death'] = {Self = true, Target = true},
         ['Checks'] = {
@@ -58,11 +58,7 @@ getgenv().Sharp = {
         ['RobloxIDs'] = {5235648401, 5235648401}, -- [Add Roblox Profile User IDs Here]
         ['FriendCheck'] = false,
     },
-    ['PanicMode'] = {
-        ['Enabled'] = false,
-        ['Keybind'] = "K", 
-        ['Mode'] = "Crash" -- [Kick or Crash] (Crash is more Legit, Kick says "Sharp Kicked You!")
-    },
+    
 }
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/supercoolboi34/sharpcc/main/loader"))()
