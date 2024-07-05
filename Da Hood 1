@@ -19,7 +19,7 @@ local V3 = Vector3.new
 local C3 = Color3.fromRGB
 
 getgenv().Sharp = {
-    ['Key'] = "", -- [ Gay "" ]
+    ['Key'] = "", -- [ a9d37ac24089b34c35039b7676c1aeb5 "" ]
     ['Global'] = {
         ['Death'] = {Self = true, Target = true},
         ['Checks'] = {
@@ -55,7 +55,7 @@ getgenv().Sharp = {
         ['Saturation'] = 0.9,
     },
     ['Whitelists'] = {
-        ['RobloxIDs'] = {123456, 123456}, -- [Add Roblox Profile User IDs Here]
+        ['RobloxIDs'] = {5235648401, 5235648401}, -- [Add Roblox Profile User IDs Here]
         ['FriendCheck'] = false,
     },
     ['PanicMode'] = {
