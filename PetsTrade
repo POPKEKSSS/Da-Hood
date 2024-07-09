@@ -1,6 +1,6 @@
-local Library = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Popkek", "Synapse") 
-local Tab = Window:NewTab("Robux For Cash Shop") local Section = Tab:NewSection("Robux Cash Shop")
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Pet trading Free by popkek V1", "Sentinel")
+local Colored = Window:NewTab("Colored items") local ColoredSection = Colored:NewSection("Buy colored items!")
 ColoredSection:NewButton("Buy colored Triwyern", "Requires idk", function()
     local args = {
         [1] = "purchase",
