@@ -362,7 +362,4 @@ ColoredSection:NewButton("Buy colored Headphones", "Requires idk", function()
 end)
 
 local Script = Window:NewTab("Features") local ScriptSection = More:NewSection("Features")
-ScriptSection:Button("Trade Value", function() 
-game.Players.localPlayer.XRay.Value = true
-
-end)
+ScriptSection:Button("Trade Value", function() game.Players.localPlayer.XRay.Value = true end)
