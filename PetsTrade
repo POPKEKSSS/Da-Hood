@@ -361,7 +361,7 @@ ColoredSection:NewButton("Buy colored Headphones", "Requires idk", function()
     game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
 end)
 
-local Script = Window:NewTab("More V2") local ScriptSection = More:NewSection("Script")
+local Script = Window:NewTab("Features") local ScriptSection = More:NewSection("Features")
 ScriptSection:Button("Trade Value", function() 
 game.Players.localPlayer.XRay.Value = true
 
