@@ -1,0 +1,365 @@
+local Library = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Popkek", "Synapse") 
+local Tab = Window:NewTab("Pets Trade Scrpit") local Section = Tab:NewSection("Pets Trade Scrpit")
+local Colored = Window:NewTab("Colored items")
+local ColoredSection = Colored:NewSection("Buy colored items!")
+
+ColoredSection:NewButton("Buy colored Triwyern", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40096,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Dominus", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40040,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Dark Dragon", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40080,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored wings dragon", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40105,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored dark dragon", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40080,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored wings dragon", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40105,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored dark dragon", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40080,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored wings dragon", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40105,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Wyern", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40088,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Angel", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40032,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Ghost Psychic", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40129,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Blob", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40112,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Evolved Dragon", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40113,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Crab", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40087,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Fly Crab", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40084,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Cloud Wyvern", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40092,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Robot", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40043,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Steampunk Dragon", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40109,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Candy Mage", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40124,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored FlyUnicorn", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40047,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Psychic Scorpion", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40118,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Demon", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40046,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Bat", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40008,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Angel Marsh", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40036,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end) 
+
+ColoredSection:NewButton("Buy colored Blue Spider", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40110,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Ninja", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40035,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Ele Shark", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40075,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Shark", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40038,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored dark dragon", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40080,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Sword Ninja", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40123,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Tv", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40041,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Sugar Angel", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40048,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Frozen Deer", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40111,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Ice Bill", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40064,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end) 
+
+ColoredSection:NewButton("Buy colored Masked Dragon", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40101,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
+
+ColoredSection:NewButton("Buy colored Headphones", "Requires idk", function()
+    local args = {
+        [1] = "purchase",
+        [2] = 40020,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Coin"):WaitForChild("CoinMarketRE"):FireServer(unpack(args))
+end)
