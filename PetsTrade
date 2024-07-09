@@ -1,4 +1,4 @@
-local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local Library = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Popkek", "Synapse") 
 local Colored = Window:NewTab("Colored items") local ColoredSection = Colored:NewSection("Buy colored items!")
 ColoredSection:NewButton("Buy colored Triwyern", "Requires idk", function()
