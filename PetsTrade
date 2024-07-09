@@ -366,6 +366,3 @@ ScriptSection:Button("Trade Value", function()
 game.Players.localPlayer.XRay.Value = true
 
 end)
-
-ScriptSection:Button("Farx Script", function() 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Farx11122/Dupess/main/PetTrading"))()
