@@ -1,28 +1,46 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("da hood all tool ", "Midnight")
-local Tab = Window:NewTab("any tool") local Section = Tab:NewSection("script!")
-Section:NewButton("Q tool", "ButtonInfo", function()
--- Butonu bul
-local button = script.Parent -- Script'in bulunduğu paneldeki buton
+-- Sahte eşya atma scripti
 
--- Butona tıklanma olayı ekle
-button.MouseButton1Click:Connect(function()
-    -- Oyuncunun karakterini al
-    local character = game.Players.LocalPlayer.Character
-    if character then
-        local humanoid = character:FindFirstChildOfClass("Humanoid")
-        if humanoid then
-            -- Karakterin sırt çantasındaki tüm araçları al
-            local backpack = game.Players.LocalPlayer.Backpack
-            if backpack then
-                for _, tool in pairs(backpack:GetChildren()) do
-                    if tool:IsA("Tool") then
-                        -- Sınırsız mermi özelliği ekleyin
-                        tool.RequiresHandle = false -- İsteğe bağlı: Silahı almadan ateş etmeyi sağlar
-                        tool.Ammo = math.huge -- Sonsuz mermi
-                    end
-                end
-            end
+-- Eşyaların ID ve isimleri
+local fakeItems = {
+    { id = 1001, name = "Sahte Elmas" },
+    { id = 1002, name = "Sahte Altın" },
+    { id = 1003, name = "Sahte Gümüş" },
+    -- İsterseniz daha fazla sahte eşya ekleyebilirsiniz
+}
+
+-- Scriptin bağlı olduğu nesne (örneğin, bir part)
+local parentPart = script.Parent
+
+-- Butonun özellikleri
+local buttonSize = UDim2.new(0, 200, 0, 50) -- Buton boyutu (genişlik, yükseklik)
+local buttonPosition = UDim2.new(0.5, -100, 0.5, -25) -- Butonun ekran içindeki konumu (x, y)
+
+-- Buton oluşturma fonksiyonu
+local function createButton()
+    -- Yeni bir TextButton oluştur
+    local button = Instance.new("TextButton")
+    button.Text = "Sahte Eşyaları Al"
+    button.Size = buttonSize
+    button.Position = buttonPosition
+    button.Parent = parentPart -- Butonu parentPart'a ekleyin (bu örnekte scriptin bağlı olduğu nesne)
+
+    -- Butona tıklandığında çalışacak fonksiyon
+    button.MouseButton1Click:Connect(function()
+        -- Oyuncuya mesaj gönder
+        local player = game.Players:GetPlayerFromCharacter(button.Parent)
+        if not player then return end
+        
+        player:Chat("Sahte eşyalar yüklendi!")
+
+        -- Sahte eşyaları oyuncuya ver
+        local backpack = player.Backpack
+        for _, item in ipairs(fakeItems) do
+            local newFakeItem = Instance.new("Tool")
+            newFakeItem.Name = item.name
+            newFakeItem.Parent = backpack
         end
-    end
-end)
+    end)
+end
+
+-- Buton oluştur
+createButton()
