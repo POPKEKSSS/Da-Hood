@@ -1,44 +1,65 @@
--- Sahte eşya atma scripti
+-- ESP (Extra Sensory Perception) Kodu
 
--- Eşyaların ID ve isimleri
-local fakeItems = {
-    { id = 40082, name = "Colored Jet" },
-    -- İsterseniz daha fazla sahte eşya ekleyebilirsiniz
-}
+local espRange = 50 -- ESP'nin etkin olacağı maksimum mesafe
 
--- Scriptin bağlı olduğu nesne (örneğin, bir part)
-local parentPart = script.Parent
+-- Fonksiyon: Oyuncuları ve adlarını göster
+local function showPlayersESP()
+    for _, player in ipairs(game.Players:GetPlayers()) do
+        if player ~= game.Players.LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            local character = player.Character
+            local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
 
--- Butonun özellikleri
-local buttonSize = UDim2.new(0, 200, 0, 50) -- Buton boyutu (genişlik, yükseklik)
-local buttonPosition = UDim2.new(0.5, -100, 0.5, -25) -- Butonun ekran içindeki konumu (x, y)
+            -- ESP'yi yalnızca belirli bir mesafede göster (espRange)
+            if (humanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= espRange then
+                -- BillboardGui oluştur
+                local billboardGui = Instance.new("BillboardGui")
+                billboardGui.AlwaysOnTop = true
+                billboardGui.Size = UDim2.new(2, 0, 1, 0)
+                billboardGui.StudsOffset = Vector3.new(0, 3, 0)
+                billboardGui.Parent = humanoidRootPart
 
--- Buton oluşturma fonksiyonu
-local function createButton()
-    -- Yeni bir TextButton oluştur
-    local button = Instance.new("TextButton")
-    button.Text = "Sahte Eşyaları Al"
-    button.Size = buttonSize
-    button.Position = buttonPosition
-    button.Parent = parentPart -- Butonu parentPart'a ekleyin (bu örnekte scriptin bağlı olduğu nesne)
-
-    -- Butona tıklandığında çalışacak fonksiyon
-    button.MouseButton1Click:Connect(function()
-        -- Oyuncuya mesaj gönder
-        local player = game.Players:GetPlayerFromCharacter(button.Parent)
-        if not player then return end
-        
-        player:Chat("Sahte eşyalar yüklendi!")
-
-        -- Sahte eşyaları oyuncuya ver
-        local backpack = player.Backpack
-        for _, item in ipairs(fakeItems) do
-            local newFakeItem = Instance.new("Tool")
-            newFakeItem.Name = item.name
-            newFakeItem.Parent = backpack
+                -- TextLabel oluştur (oyuncu adı için)
+                local nameLabel = Instance.new("TextLabel")
+                nameLabel.BackgroundTransparency = 1
+                nameLabel.Size = UDim2.new(1, 0, 0.2, 0)
+                nameLabel.Position = UDim2.new(0, 0, 0, 0)
+                
+                -- Oyuncunun ekipman kontrolü
+                local hasKnife = false
+                local hasGun = false
+                
+                for _, child in ipairs(character:GetChildren()) do
+                    if child:IsA("Tool") then
+                        if child.Name == "Knife" then
+                            hasKnife = true
+                        elseif child.Name == "Gun" then
+                            hasGun = true
+                        end
+                    end
+                end
+                
+                -- Oyuncu adını ve rengini belirle
+                if hasKnife then
+                    nameLabel.Text = player.Name
+                    nameLabel.TextColor3 = Color3.new(1, 0, 0) -- Kırmızı renk (bıçaklı)
+                elseif hasGun then
+                    nameLabel.Text = player.Name
+                    nameLabel.TextColor3 = Color3.new(0, 0, 1) -- Mavi renk (silahlı)
+                else
+                    nameLabel.Text = player.Name
+                    nameLabel.TextColor3 = Color3.new(1, 1, 1) -- Beyaz renk (silahsız ve bıçaksız)
+                end
+                
+                nameLabel.Font = Enum.Font.SourceSansBold
+                nameLabel.TextSize = 16
+                nameLabel.Parent = billboardGui
+            end
         end
-    end)
+    end
 end
 
--- Buton oluştur
-createButton()
+-- ESP'yi belirli aralıklarla güncelle
+while true do
+    showPlayersESP()
+    wait(1)  -- Her saniyede bir kontrol etmek için
+end
