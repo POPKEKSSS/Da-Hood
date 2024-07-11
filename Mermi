@@ -1,15 +1,21 @@
-local button = script.Parent 
+-- Butonu bul
+local button = script.Parent -- Script'in bulunduğu paneldeki buton
+
+-- Butona tıklanma olayı ekle
 button.MouseButton1Click:Connect(function()
+    -- Oyuncunun karakterini al
     local character = game.Players.LocalPlayer.Character
     if character then
         local humanoid = character:FindFirstChildOfClass("Humanoid")
         if humanoid then
+            -- Karakterin sırt çantasındaki tüm araçları al
             local backpack = game.Players.LocalPlayer.Backpack
             if backpack then
                 for _, tool in pairs(backpack:GetChildren()) do
                     if tool:IsA("Tool") then
-                        tool.RequiresHandle = false 
-                        tool.Ammo = math.huge 
+                        -- Sınırsız mermi özelliği ekleyin
+                        tool.RequiresHandle = false -- İsteğe bağlı: Silahı almadan ateş etmeyi sağlar
+                        tool.Ammo = math.huge -- Sonsuz mermi
                     end
                 end
             end
