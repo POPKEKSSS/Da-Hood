@@ -1,7 +1,18 @@
-test da hood script 
-loadstring(game:HttpGet(“https://github.com/VienYt/Da-hood-wl-hub/blob/main/wl%20hub%20dh"))()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/cashiolaa/-cash-hub/blob/main/%24%20cash%20hub"))()  cash hub which game 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/cashiolaa/cash-hub-arsenal/blob/main/cash%20hub%20arsenal"))() arsenal
-loadstring(game:HttpGet("https://raw.githubusercontent.com/cashiolaa/example/blob/main/anti%20afk"))() anti afk
-loadstring(game:HttpGet("https://raw.githubusercontent.com/AdvanceFTeam/Our-Scripts/main/AdvanceTech/Arsenal_V1.6.lua"))()
-loadstring(game:HttpGet("https://pastecode.dev/raw/yyeBvjrxrX/Any%20tool%20scarlet"))() DA HOOD TOOL DENDİ BİZE
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("da hood all tool ", "Midnight")
+local Tab = Window:NewTab("any tool")
+local Section = Tab:NewSection("script!")
+Section:NewButton("Q tool", "ButtonInfo", function()
+
+local Players = game:GetService("Players")
+local replicatedStorage = game:GetService("ReplicatedStorage")
+
+local itemName = "40082"
+local itemTemplate = replicatedStorage:FindFirstChild(40082)
+
+if itemTemplate then      
+    local player = Players.LocalPlayer
+    local itemCopy = itemTemplate:Clone()
+    itemCopy.Parent = player.Backpack 
+    
+    
