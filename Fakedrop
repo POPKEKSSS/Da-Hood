@@ -2,9 +2,7 @@
 
 -- Eşyaların ID ve isimleri
 local fakeItems = {
-    { id = 1001, name = "Sahte Elmas" },
-    { id = 1002, name = "Sahte Altın" },
-    { id = 1003, name = "Sahte Gümüş" },
+    { id = 40082, name = "Colored Jet" },
     -- İsterseniz daha fazla sahte eşya ekleyebilirsiniz
 }
 
