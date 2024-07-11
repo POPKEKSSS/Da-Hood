@@ -1,3 +1,6 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("da hood all tool ", "Midnight")
+local Tab = Window:NewTab("credits") local Section = Tab:NewSection("credits by scarletbackup#3582")
 -- Butonu bul
 local button = script.Parent -- Script'in bulunduğu paneldeki buton
 
