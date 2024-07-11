@@ -1,0 +1,18 @@
+local button = script.Parent 
+button.MouseButton1Click:Connect(function()
+    local character = game.Players.LocalPlayer.Character
+    if character then
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            local backpack = game.Players.LocalPlayer.Backpack
+            if backpack then
+                for _, tool in pairs(backpack:GetChildren()) do
+                    if tool:IsA("Tool") then
+                        tool.RequiresHandle = false 
+                        tool.Ammo = math.huge 
+                    end
+                end
+            end
+        end
+    end
+end)
