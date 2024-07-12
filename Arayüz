@@ -1,0 +1,54 @@
+-- Mobil ekran arayüzü için bir ScreenGui oluşturma
+local screenGui = Instance.new("ScreenGui")
+screenGui.IgnoreGuiInset = true  -- Mobil cihazların ekran kenarlarını dikkate alması için
+
+-- Arayüz açma ve kapama işlevi için değişken
+local arayuzAcik = false
+
+-- Buton oluşturma
+local button = Instance.new("TextButton")
+button.Parent = screenGui
+button.Size = UDim2.new(0.2, 0, 0.1, 0)  -- Boyutu ayarla
+button.Position = UDim2.new(0.05, 0, 0.05, 0)  -- Sol üst köşeye yerleştir
+button.Text = "Toggle"  -- Buton metni
+button.TextColor3 = Color3.fromRGB(255, 255, 255)  -- Metin rengi (beyaz)
+button.BackgroundColor3 = Color3.fromRGB(0, 120, 255)  -- Mavi arka plan rengi
+button.Font = Enum.Font.SourceSans  -- Font stil
+button.TextSize = 24  -- Metin boyutu
+button.AutoButtonColor = false  -- Otomatik buton rengi değişimi devre dışı
+
+-- Arayüz nesnesi oluşturma
+local arayuzFrame = Instance.new("Frame")
+arayuzFrame.Parent = screenGui
+arayuzFrame.Size = UDim2.new(0.5, 0, 0.5, 0)  -- Arayüz boyutu
+arayuzFrame.Position = UDim2.new(0.25, 0, 0.25, 0)  -- Orta konuma getir
+arayuzFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)  -- Koyu gri arka plan rengi
+arayuzFrame.BorderSizePixel = 2  -- Kenarlık kalınlığı
+arayuzFrame.BorderColor3 = Color3.fromRGB(0, 120, 255)  -- Kenarlık rengi
+arayuzFrame.Visible = false  -- Başlangıçta görünmez
+
+-- Arayüz için kapatma butonu
+local closeButton = Instance.new("TextButton")
+closeButton.Parent = arayuzFrame
+closeButton.Size = UDim2.new(0.1, 0, 0.1, 0)  -- Boyutu ayarla
+closeButton.Position = UDim2.new(0.9, 0, 0, 0)  -- Sağ üst köşeye yerleştir
+closeButton.Text = "X"  -- Kapatma simgesi
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)  -- Metin rengi (beyaz)
+closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)  -- Kırmızı arka plan rengi
+closeButton.Font = Enum.Font.SourceSansBold  -- Kalın font stil
+closeButton.TextSize = 18  -- Metin boyutu
+
+-- Butona tıklama olayını dinleme
+button.MouseButton1Click:Connect(function()
+    arayuzAcik = not arayuzAcik  -- Arayüz durumunu tersine çevir
+    arayuzFrame.Visible = arayuzAcik  -- Arayüzü göster veya gizle
+end)
+
+-- Kapatma butonuna tıklama olayını dinleme
+closeButton.MouseButton1Click:Connect(function()
+    arayuzAcik = false  -- Arayüzü kapat
+    arayuzFrame.Visible = false  -- Arayüzü gizle
+end)
+
+-- Ekranı oyuna ekleme
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
