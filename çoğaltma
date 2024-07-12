@@ -1,0 +1,10 @@
+local InsertService = game:GetService("InsertService")
+local petId = 30130  -- Pet'in Asset ID'si
+local numberOfCopies = 10  -- Oluşturulacak kopya sayısı
+local player = game.Players.LocalPlayer  -- Yerel oyuncu
+
+for i = 1, numberOfCopies do
+    local newPet = InsertService:LoadAsset(petId):GetChildren()[1]  -- Pet'i yükle
+    newPet.Name = "Rainbow Tri Dominus"  -- Pet'in adını ayarla
+    newPet.Parent = player.Backpack  -- Yeni pet'i oyuncunun çantasına ekle
+end
