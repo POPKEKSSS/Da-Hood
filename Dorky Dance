@@ -1,0 +1,22 @@
+local Players = game:GetService("Players")
+
+local function playDanceEmote(player)
+    local character = player.Character
+    if character and character:FindFirstChild("Humanoid") then
+        local emote = Instance.new("Animation")
+        emote.AnimationId = "rbxassetid://4212499637"  -- Dans emote ID'si
+        local animator = character:FindFirstChildOfClass("Animator")
+        
+        if animator then
+            animator:LoadAnimation(emote):Play()
+        end
+    end
+end
+
+Players.PlayerAdded:Connect(function(player)
+    player.Chatted:Connect(function(message)
+        if message:lower() == "!dance" then
+            playDanceEmote(player)
+        end
+    end)
+end)
