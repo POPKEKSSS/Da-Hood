@@ -1,10 +1,12 @@
-local InsertService = game:GetService("InsertService")
+local replicatedStorage = game:GetService("ReplicatedStorage")
 local petId = 30130  -- Pet'in Asset ID'si
 local numberOfCopies = 10  -- Oluşturulacak kopya sayısı
 local player = game.Players.LocalPlayer  -- Yerel oyuncu
 
+-- ReplicatedStorage'ta pet modelini yükleme
+local petModel = replicatedStorage:WaitForChild("RainbowTriDominus") -- Pet modeli
+
 for i = 1, numberOfCopies do
-    local newPet = InsertService:LoadAsset(petId):GetChildren()[1]  -- Pet'i yükle
-    newPet.Name = "Rainbow Tri Dominus"  -- Pet'in adını ayarla
+    local newPet = petModel:Clone()  -- Pet'i kopyala
     newPet.Parent = player.Backpack  -- Yeni pet'i oyuncunun çantasına ekle
 end
