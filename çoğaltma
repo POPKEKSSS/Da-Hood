@@ -1,5 +1,5 @@
 local replicatedStorage = game:GetService("ReplicatedStorage")
-local petModelName = "RainbowTriDominus"  -- Pet modelinin adı
+local petModelName = "Rainbow Tri Dominus"  -- Pet modelinin tam adı
 local numberOfCopies = 10  -- Oluşturulacak kopya sayısı
 local player = game.Players.LocalPlayer  -- Yerel oyuncu
 
