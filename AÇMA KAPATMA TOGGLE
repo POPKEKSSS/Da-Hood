@@ -1,0 +1,70 @@
+-- ScreenGui oluşturma
+local screenGui = Instance.new("ScreenGui")
+screenGui.IgnoreGuiInset = true  -- Mobil cihazların ekran kenarlarını dikkate alması için
+
+-- Arayüz açma ve kapama durumu için değişken
+local arayuzAcik = false
+
+-- Toggle buton oluşturma
+local toggleButton = Instance.new("TextButton")
+toggleButton.Parent = screenGui
+toggleButton.Size = UDim2.new(0.2, 0, 0.1, 0)
+toggleButton.Position = UDim2.new(0.05, 0, 0.05, 0)  -- Sol üst köşeye yerleştir
+toggleButton.AnchorPoint = Vector2.new(0, 0)
+toggleButton.Text = "Toggle"
+toggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+toggleButton.BackgroundColor3 = Color3.fromRGB(0, 120, 255)
+toggleButton.Font = Enum.Font.SourceSans
+toggleButton.TextSize = 24
+toggleButton.AutoButtonColor = false
+
+-- Arayüz frame oluşturma
+local arayuzFrame = Instance.new("Frame")
+arayuzFrame.Parent = screenGui
+arayuzFrame.Size = UDim2.new(0.5, 0, 0.5, 0)
+arayuzFrame.Position = UDim2.new(0.25, 0, 0.25, 0)
+arayuzFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+arayuzFrame.BorderSizePixel = 2
+arayuzFrame.BorderColor3 = Color3.fromRGB(0, 120, 255)
+arayuzFrame.Visible = false  -- Başlangıçta arayüz gizli
+
+-- Arayüz kapatma butonu oluşturma
+local closeButton = Instance.new("TextButton")
+closeButton.Parent = arayuzFrame
+closeButton.Size = UDim2.new(0.1, 0, 0.1, 0)
+closeButton.Position = UDim2.new(0.9, 0, 0, 0)
+closeButton.Text = "X"
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+closeButton.Font = Enum.Font.SourceSansBold
+closeButton.TextSize = 18
+
+-- Toggle butonuna tıklama olayı ekleme
+toggleButton.MouseButton1Click:Connect(function()
+    arayuzAcik = not arayuzAcik  -- Arayüz durumunu tersine çevir
+    arayuzFrame.Visible = arayuzAcik  -- Arayüzü göster veya gizle
+end)
+
+-- Arayüzün çerçeve rengini sürekli güncelleme fonksiyonu
+local function updateFrameColor()
+    while true do
+        if arayuzAcik then
+            arayuzFrame.BorderColor3 = Color3.fromHSV(tick() % 5 / 5, 1, 1)  -- Hareketli renk döngüsü
+        else
+            arayuzFrame.BorderColor3 = Color3.fromRGB(0, 120, 255)  -- Mavi çerçeve rengi
+        end
+        wait(0.1)  -- Her 0.1 saniyede bir güncelle
+    end
+end
+
+-- Arayüzün çerçeve rengini güncelleme fonksiyonunu başlatma
+spawn(updateFrameColor)
+
+-- Kapatma butonuna tıklama olayı ekleme
+closeButton.MouseButton1Click:Connect(function()
+    arayuzAcik = false  -- Arayüzü kapat
+    arayuzFrame.Visible = false  -- Arayüzü gizle
+end)
+
+-- Ekranı oyuncunun arayüzüne ekleme
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
