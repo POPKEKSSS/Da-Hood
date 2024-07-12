@@ -1,16 +1,12 @@
 local replicatedStorage = game:GetService("ReplicatedStorage")
 local petModelName = "Rainbow Tri Dominus"  -- Pet modelinin tam adı
-local numberOfCopies = 10  -- Oluşturulacak kopya sayısı
-local player = game.Players.LocalPlayer  -- Yerel oyuncu
+local player = game.Players.LocalPlayer
 
 -- Modelin ReplicatedStorage'da olup olmadığını kontrol et
 local petModel = replicatedStorage:FindFirstChild(petModelName)
 
 if petModel then
-    for i = 1, numberOfCopies do
-        local newPet = petModel:Clone()  -- Pet'i kopyala
-        newPet.Parent = player.Backpack  -- Yeni pet'i oyuncunun çantasına ekle
-    end
+    -- Kopyalama işlemi
 else
     warn("Pet model bulunamadı: " .. petModelName)  -- Hata mesajı
 end
