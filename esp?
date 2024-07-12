@@ -1,0 +1,23 @@
+local player = game.Players.LocalPlayer  -- Oyuncu referansı
+local camera = game.Workspace.CurrentCamera
+
+-- Sürekli kontrol döngüsü
+while true do
+    wait(0.1)  -- 0.1 saniye bekle
+    
+    for _, obj in pairs(game.Workspace:GetChildren()) do
+        if obj:IsA("Player") and obj ~= player then
+            -- Nesnenin konumunu al
+            local screenPos = camera:WorldToScreenPoint(obj.Position)
+
+            -- ESP kutusu oluştur
+            local espBox = Instance.new("Frame")
+            espBox.Size = UDim2.new(0, 100, 0, 100)
+            espBox.Position = UDim2.new(0, screenPos.X - 50, 0, screenPos.Y - 50)
+            espBox.BackgroundColor3 = Color3.fromRGB(255, 0, 0)  -- Kırmızı renk
+            espBox.Parent = game.Players.LocalPlayer.PlayerGui.ScreenGui  -- Ekranda göster
+
+            wait(0.1)  -- Kutuları oluştururken biraz bekle
+        end
+    end
+end
