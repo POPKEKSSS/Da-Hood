@@ -1,39 +1,40 @@
 local Players = game:GetService("Players")
 
 local function onPlayerAdded(player)
-    -- Oyuncu rolünü atama
     player:SetAttribute("Role", "Innocent") -- Varsayılan rol
-    -- İhtiyacınıza göre rol atamalarını değiştirebilirsiniz
 
-    -- Oyuncunun karakteri eklendiğinde
     player.CharacterAdded:Connect(function(character)
-        -- İnvizibilite durumu
+        local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
         local isInvisible = false
-
-        -- "Murderer" için bir referans al
-        local murderer = Players:GetPlayers()[math.random(1, #Players:GetPlayers())] -- Bu, gerçek bir murderer seçimi olmalıdır.
-
+        
         while true do
             wait(0.5) -- Kontrol sıklığı
 
-            if murderer and murderer.Character and character then
-                local distance = (murderer.Character.HumanoidRootPart.Position - character.HumanoidRootPart.Position).magnitude
+            for _, otherPlayer in ipairs(Players:GetPlayers()) do
+                if otherPlayer:GetAttribute("Role") == "Murderer" then
+                    local murdererRootPart = otherPlayer.Character and otherPlayer.Character:FindFirstChild("HumanoidRootPart")
+                    local knife = otherPlayer.Backpack:FindFirstChild("Knife") -- Bıçak
 
-                -- Eğer murderer yakınsa
-                if distance < 10 and not isInvisible then
-                    isInvisible = true
-                    character.HumanoidRootPart.Transparency = 1 -- Görünmez yap
-                    for _, part in ipairs(character:GetChildren()) do
-                        if part:IsA("BasePart") then
-                            part.Transparency = 1 -- Tüm parçaların transparanlığını ayarla
-                        end
-                    end
-                elseif distance >= 10 and isInvisible then
-                    isInvisible = false
-                    character.HumanoidRootPart.Transparency = 0 -- Görünür yap
-                    for _, part in ipairs(character:GetChildren()) do
-                        if part:IsA("BasePart") then
-                            part.Transparency = 0 -- Tüm parçaların transparanlığını geri al
+                    if murdererRootPart and knife then
+                        local distance = (murdererRootPart.Position - humanoidRootPart.Position).magnitude
+
+                        -- Eğer "Murderer" 20 birim yakınsa ve bu oyuncu "Innocent" ise
+                        if distance < 20 and otherPlayer ~= player then
+                            if not isInvisible then
+                                isInvisible = true
+                                for _, part in ipairs(character:GetChildren()) do
+                                    if part:IsA("BasePart") then
+                                        part.Transparency = 1 -- Görünmez yap
+                                    end
+                                end
+                            end
+                        elseif distance >= 20 and isInvisible then
+                            isInvisible = false
+                            for _, part in ipairs(character:GetChildren()) do
+                                if part:IsA("BasePart") then
+                                    part.Transparency = 0 -- Görünür yap
+                                end
+                            end
                         end
                     end
                 end
