@@ -1,0 +1,26 @@
+local o = 0
+local h = 0 -- Başlangıç değeri
+
+-- İlk döngü
+repeat
+    o = o + 1
+    h = (h - 369) % 45005
+    local r = o + h
+
+    if (h % 0x2346) < 0x11A3 then
+        h = (h + 0x34B) % 0xA376
+    end
+until o >= 0x1FF or h % 0x29B8 >= 0x14DC
+
+-- İkinci döngü
+while o < 0x89 and h % 0x20D0 < 0x1068 do
+    o = o + 1
+    h = (h - 738) % 41693
+    local d = o + h
+
+    if (h % 0x1044) < 0x822 then
+        -- Buraya ESP mantığını ekleyebilirsin
+    end
+end
+
+print("Sonuç: o =", o, "h =", h)
