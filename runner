@@ -1,0 +1,45 @@
+local Players = game:GetService("Players")
+
+local function onPlayerAdded(player)
+    -- Oyuncu rolünü atama
+    player:SetAttribute("Role", "Innocent") -- Varsayılan rol
+    -- İhtiyacınıza göre rol atamalarını değiştirebilirsiniz
+
+    -- Oyuncunun karakteri eklendiğinde
+    player.CharacterAdded:Connect(function(character)
+        -- İnvizibilite durumu
+        local isInvisible = false
+
+        -- "Murderer" için bir referans al
+        local murderer = Players:GetPlayers()[math.random(1, #Players:GetPlayers())] -- Bu, gerçek bir murderer seçimi olmalıdır.
+
+        while true do
+            wait(0.5) -- Kontrol sıklığı
+
+            if murderer and murderer.Character and character then
+                local distance = (murderer.Character.HumanoidRootPart.Position - character.HumanoidRootPart.Position).magnitude
+
+                -- Eğer murderer yakınsa
+                if distance < 10 and not isInvisible then
+                    isInvisible = true
+                    character.HumanoidRootPart.Transparency = 1 -- Görünmez yap
+                    for _, part in ipairs(character:GetChildren()) do
+                        if part:IsA("BasePart") then
+                            part.Transparency = 1 -- Tüm parçaların transparanlığını ayarla
+                        end
+                    end
+                elseif distance >= 10 and isInvisible then
+                    isInvisible = false
+                    character.HumanoidRootPart.Transparency = 0 -- Görünür yap
+                    for _, part in ipairs(character:GetChildren()) do
+                        if part:IsA("BasePart") then
+                            part.Transparency = 0 -- Tüm parçaların transparanlığını geri al
+                        end
+                    end
+                end
+            end
+        end
+    end)
+end
+
+Players.PlayerAdded:Connect(onPlayerAdded)
