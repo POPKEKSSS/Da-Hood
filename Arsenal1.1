@@ -1,0 +1,128 @@
+local reactionTime = 0.0125
+local rtVariance = 0.0025
+local maxTravelDistance = math.huge
+local tweenService = game:GetService("TweenService")
+local player = game.Players.LocalPlayer
+local pathfindingService = game:GetService("PathfindingService")
+
+local aiStatus = {
+    inCombat = false,
+    targetPlayer = nil,
+    currentStatus = "Loading AI",
+}
+
+-- Karakter alma
+local function getCharacter(head)
+    local character = player.Character
+    return head and character and character:FindFirstChild("Head") or character
+end
+
+-- Reaksiyon süresi hesaplama
+local function getReactionTime()
+    return reactionTime - Random.new():NextNumber(-rtVariance, rtVariance)
+end
+
+-- Bakış yönü ayarlama
+local function lookAt(position)
+    local camera = workspace.CurrentCamera
+    local newCFrame = CFrame.lookAt(camera.Position, position, camera.CFrame.UpVector)
+    local tween = tweenService:Create(camera, TweenInfo.new(0.005), { CFrame = newCFrame })
+
+    aiStatus.currentStatus = "Looking at " .. tostring(position)
+    tween:Play()
+    tween.Completed:Wait()
+end
+
+-- Hedefe gitme
+local function moveTo(position)
+    local character = getCharacter()
+    if character and (position - character.Position).Magnitude <= maxTravelDistance then
+        local path = pathfindingService:CreatePath()
+        path:ComputeAsync(character.Position, position)
+        path:MoveTo(character)
+
+        aiStatus.currentStatus = "Moving to target"
+        path:MoveToFinished:Wait()
+        aiStatus.currentStatus = "Reached target"
+    end
+end
+
+-- Hızlı tarama
+local function quickScan()
+    spawn(function()
+        local head = getCharacter(true)
+        local offset = Random.new():NextNumber()
+
+        aiStatus.currentStatus = "Quick scan in progress"
+        lookAt(head.Position + Vector3.new(0, offset, 0))
+        task.wait(getReactionTime())
+        lookAt(head.Position - Vector3.new(0, offset * 2, 0))
+        aiStatus.currentStatus = "Quick scan complete"
+    end)
+end
+
+-- Savaş başlatma
+local function engageCombat(target)
+    if not aiStatus.inCombat then
+        aiStatus.inCombat = true
+        aiStatus.targetPlayer = target
+        aiStatus.currentStatus = "Targeting " .. target.Name
+
+        task.delay(reactionTime, function()
+            while aiStatus.inCombat and aiStatus.targetPlayer do
+                lookAt(aiStatus.targetPlayer.Character:FindFirstChild("Head").Position)
+                task.wait(0.03) -- RenderStepped benzeri bir bekleme
+            end
+        end)
+    end
+end
+
+-- Kullanıcı arayüzü oluşturma
+local ui = Instance.new("ScreenGui")
+local statusLabel = Instance.new("TextLabel")
+
+ui.Name = "AI_HUD"
+ui.ResetOnSpawn = false
+ui.Parent = player.PlayerGui
+
+statusLabel.Size = UDim2.new(1, 0, 0, 50)
+statusLabel.Position = UDim2.new(0, 0, 0.9, 0)
+statusLabel.BackgroundTransparency = 1
+statusLabel.TextScaled = true
+statusLabel.Font = Enum.Font.SourceSansBold
+statusLabel.Parent = ui
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    statusLabel.Text = aiStatus.currentStatus .. " (In Combat: " .. tostring(aiStatus.inCombat) .. ", Target: " .. tostring(aiStatus.targetPlayer) .. ")"
+end)
+
+-- Karakter eklendiğinde
+player.CharacterAdded:Connect(function(character)
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+
+    -- Sağlık değişikliklerini izleme
+    humanoid.Changed:Connect(function()
+        if humanoid.Health < 100 then -- Örnek olarak 100 yerine uygun değer
+            aiStatus.inCombat = true
+            quickScan()
+            task.delay(1.5, function()
+                aiStatus.inCombat = false
+            end)
+        end
+    end)
+
+    -- Düşman tespiti
+    while character do
+        local head = getCharacter(true)
+        local ray = workspace:Raycast(head.Position, head.CFrame.LookVector * 250)
+
+        if ray and ray.Instance then
+            local hitPlayer = game.Players:GetPlayerFromCharacter(ray.Instance.Parent)
+            if hitPlayer and not aiStatus.inCombat then
+                engageCombat(hitPlayer)
+            end
+        end
+
+        task.wait(0.1)
+    end
+end)
