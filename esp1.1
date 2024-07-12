@@ -1,26 +1,21 @@
-local o = 0
-local h = 0 -- Başlangıç değeri
+-- Nesne verileri (örnek)
+local objects = {
+    {name = "Enemy1", x = 100, y = 200},
+    {name = "Enemy2", x = 300, y = 150},
+}
 
--- İlk döngü
-repeat
-    o = o + 1
-    h = (h - 369) % 45005
-    local r = o + h
-
-    if (h % 0x2346) < 0x11A3 then
-        h = (h + 0x34B) % 0xA376
-    end
-until o >= 0x1FF or h % 0x29B8 >= 0x14DC
-
--- İkinci döngü
-while o < 0x89 and h % 0x20D0 < 0x1068 do
-    o = o + 1
-    h = (h - 738) % 41693
-    local d = o + h
-
-    if (h % 0x1044) < 0x822 then
-        -- Buraya ESP mantığını ekleyebilirsin
-    end
+-- Ekranda gösterim fonksiyonu
+function drawESP(object)
+    -- Burada nesnenin ekrandaki konumunu hesaplayıp çizebilirsin
+    print("ESP: " .. object.name .. " - Konum: (" .. object.x .. ", " .. object.y .. ")")
 end
 
-print("Sonuç: o =", o, "h =", h)
+-- Ana döngü
+while true do
+    for _, obj in ipairs(objects) do
+        drawESP(obj)
+    end
+    
+    -- Döngüyü yavaşlatmak için bekleme süresi
+    os.execute("sleep 1") -- 1 saniye bekle
+end
