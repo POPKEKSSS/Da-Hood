@@ -1,85 +1,250 @@
-local kavoUi = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
-local window = kavoUi.CreateLib("Toys Trading Script Made by xdkentryanborbon")
- 
----Tabs
- 
-local Tab1 = window:NewTab("Main")
-local Tab1Section = Tab1:NewSection("Main")
-local Tab2 = window:NewTab(" Colored item")
-local Tab2Section = Tab2:NewSection("Colored item")
-local Tab3 = window:NewTab("Credits")
-local Tab3Section = Tab3:NewSection("Made by xdkentryanborbon")
- 
----Buttons
- 
-Tab2Section:NewButton("Colored Jet","NoInfo",function()
-getgenv().id = 40082 -- Item ID
- 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DontForgontPassword/Script/main/Script.lua"))()
-end)
- 
-Tab2Section:NewButton("Colored Pumpkin Horn","NoInfo",function()
-getgenv().id = 40247 -- Item ID
- 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DontForgontPassword/Script/main/Script.lua"))()
-end)
+local Rayfield = loadstring(game:HttpGet('https://[Log in to view URL]'))()
 
- Tab2Section:NewButton("Color Pumkin","NoInfo",function()
-getgenv().id = 40246 -- Item ID
- 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DontForgontPassword/Script/main/Script.lua"))()
-end)
- 
-Tab2Section:NewButton("ColorDragonPet","NoInfo",function()
-getgenv().id = 40064 -- Item ID
- 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DontForgontPassword/Script/main/Script.lua"))()
-end)
- 
-Tab2Section:NewButton("ColorEggPainted","NoInfo",function()
-getgenv().id = 40222 -- Item ID
- 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DontForgontPassword/Script/main/Script.lua"))()
-end)
+local Window = Rayfield:CreateWindow({
+   Name = "🔫 Grapple people simulator 🔫",
+   LoadingTitle = "Dinux hub",
+   LoadingSubtitle = "by NEM0SIST",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "DENIX hub "
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "⚡ Dexin  Hub ⚡", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Grapple people simulator | key system",
+      Subtitle = "Key System",
+      Note = "Join discord server for the key",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"https://[Log in to view URL]"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
 
- Tab2Section:NewButton("Dupe Colored Rukiryo Cat","NoInfo",function()
-getgenv().id = 40119 -- Item ID
- 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DontForgontPassword/Script/main/Script.lua"))()
-end)
+local MainTab = Window:CreateTab("⚡ Main ", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("Main")
 
- Tab2Section:NewButton("Dupe Colored Motorcycle","NoInfo",function()
-getgenv().id = 40040 -- Item ID
- 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DontForgontPassword/Script/main/Script.lua"))()
-end)
+Rayfield:Notify({
+   Title = "Thank you for using my script (NEM0SIST)",
+   Content = "Enjoy this script",
+   Duration = 6.5,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
 
- Tab2Section:NewButton("Dupe Colored Sea Dragon","NoInfo",function()
-getgenv().id = 40058 -- Item ID
- 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DontForgontPassword/Script/main/Script.lua"))()
-end)
+local Button = MainTab:CreateButton({
+   Name = "Infinite Yeild",
+   Callback = function()
+   loadstring(game:HttpGet('https://[Log in to view URL]'))()
+   end,
+})
 
- Tab2Section:NewButton("Dupe Colored Magic Lamp","NoInfo",function()
-getgenv().id = 40078 -- Item ID
- 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DontForgontPassword/Script/main/Script.lua"))()
-end)
+local Button = MainTab:CreateButton({
+   Name = "Namless Admin",
+   Callback = function()
+   loadstring(game:HttpGet("https://[Log in to view URL]"))()
+   end,
+})
 
- Tab2Section:NewButton("Dupe Colored Burst Jacked","NoInfo",function()
-getgenv().id = 40008 -- Item ID
- 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DontForgontPassword/Script/main/Script.lua"))()
-end)
+local Slider = MainTab:CreateSlider({
+   Name = "Walkspeed",
+   Range = {16, 500},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 16,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+           game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+   end,
+})
 
-Tab2Section:NewButton("Dupe Colored Disco Hyperbike","NoInfo",function()
-getgenv().id = 40018 -- Item ID
- 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DontForgontPassword/Script/main/Script.lua"))()
-end)
+local Button = MainTab:CreateButton({
+   Name = "Grapple Kill",
+   Callback = function()
+  loadstring(game:HttpGet('https://[Log in to view URL]'))()
+   end,
+})
 
-  Tab2Section:NewButton("Dupe Colored Sword","NoInfo",function()
-getgenv().id = 40015 -- Item ID
- 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DontForgontPassword/Script/main/Script.lua"))()
-end)
+local Button = MainTab:CreateButton({
+   Name = "Anti Push | Bomb",
+   Callback = function()
+   local LocalPlayer = game.Players.LocalPlayer
+local Character = LocalPlayer.Character
+
+LocalPlayer.Character.ragdollValue:Destroy()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Chat spy | Allows you to see Private Chats",
+   Callback = function()
+   --[[
+	Simple Chat Spy
+	Type "spy" to enable or disable the chat spy.
+	Only tested if this works executed with Synapse (should work with other exploits though)
+--]]
+
+--// You can delete this so its undetectable
+print("-- Chat Spy Executed --")
+print("Type \"spy\" to enable or disable the chat spy.")
+print("Only tested if this works executed with Synapse (should work with other exploits though)")
+print("https://[Log in to view URL]")
+
+-- Config
+Config = {
+	enabled = true,
+	spyOnMyself = true,
+	public = false,
+	publicItalics = true
+}
+
+-- Customizing Log Output
+PrivateProperties = {
+	Color = Color3.fromRGB(0,255,255); 
+	Font = Enum.Font.SourceSansBold;
+	TextSize = 18;
+}
+
+	local StarterGui = game:GetService("StarterGui")
+	local Players = game:GetService("Players")
+	local player = Players.LocalPlayer
+	local saymsg = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest")
+	local getmsg = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("OnMessageDoneFiltering")
+	local instance = (_G.chatSpyInstance or 0) + 1
+	_G.chatSpyInstance = instance
+
+	local function onChatted(p,msg)
+		if _G.chatSpyInstance == instance then
+			if p==player and msg:lower():sub(1,4)=="/spy" then
+				Config.enabled = not Config.enabled
+				wait(0.3)
+				PrivateProperties.Text = "{SPY "..(Config.enabled and "EN" or "DIS").."ABLED}"
+				StarterGui:SetCore("ChatMakeSystemMessage", PrivateProperties)
+			elseif Config.enabled and (Config.spyOnMyself==true or p~=player) then
+				msg = msg:gsub("[\n\r]",''):gsub("\t",' '):gsub("[ ]+",' ')
+				local hidden = true
+				local conn = getmsg.OnClientEvent:Connect(function(packet,channel)
+					if packet.SpeakerUserId==p.UserId and packet.Message==msg:sub(#msg-#packet.Message+1) and (channel=="All" or (channel=="Team" and Config.public==false and Players[packet.FromSpeaker].Team==player.Team)) then
+						hidden = false
+					end
+				end)
+				wait(1)
+				conn:Disconnect()
+				if hidden and Config.enabled then
+					if Config.public then
+						saymsg:FireServer((Config.publicItalics and "/me " or '').."{SPY} [".. p.Name .."]: "..msg,"All")
+					else
+						PrivateProperties.Text = "{SPY} [".. p.Name .."]: "..msg
+						StarterGui:SetCore("ChatMakeSystemMessage", PrivateProperties)
+					end
+				end
+			end
+		end
+	end
+	
+	for _,p in ipairs(Players:GetPlayers()) do
+		p.Chatted:Connect(function(msg) onChatted(p,msg) end)
+	end
+
+	Players.PlayerAdded:Connect(function(p)
+		p.Chatted:Connect(function(msg) onChatted(p,msg) end)
+	end)
+
+	PrivateProperties.Text = "{SPY "..(Config.enabled and "EN" or "DIS").."ABLED}"
+	StarterGui:SetCore("ChatMakeSystemMessage", PrivateProperties)
+	local chatFrame = player.PlayerGui.Chat.Frame
+	chatFrame.ChatChannelParentFrame.Visible = true
+	chatFrame.ChatBarParentFrame.Position = chatFrame.ChatChannelParentFrame.Position+UDim2.new(UDim.new(),chatFrame.ChatChannelParentFrame.Size.Y)
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Peruanito GUI | fling all",
+   Callback = function()
+   loadstring(game:HttpGet("https://[Log in to view URL]"))()
+   end,
+})
+
+local ExtraAdminsTab = Window:CreateTab("👑 ExtraAdmins", 4483362458) -- Title, Image
+local ExtraAdminsSection = ExtraAdminsTab:CreateSection("ExtraAdmins")
+
+local Button = ExtraAdminsTab:CreateButton({
+   Name = "Fates Admins",
+   Callback = function()
+   loadstring(game:HttpGet("https://[Log in to view URL]"))();
+   end,
+})
+
+local Button = ExtraAdminsTab:CreateButton({
+   Name = "Hombrew Admin",
+   Callback = function()
+   loadstring(game:HttpGetAsync("https://[Log in to view URL]"))()
+   end,
+})
+
+local Button = ExtraAdminsTab:CreateButton({
+   Name = "IV Admin V2",
+   Callback = function()
+  loadstring(game:HttpGet('https://[Log in to view URL]'))()
+   end,
+})
+
+local Button = ExtraAdminsTab:CreateButton({
+   Name = "IV Admin V3",
+   Callback = function()
+   loadstring(game:HttpGet("https://[Log in to view URL]"))()
+   end,
+})
+
+local Button = ExtraAdminsTab:CreateButton({
+   Name = "Proton Admin",
+   Callback = function()
+   loadstring(game:HttpGet('https://[Log in to view URL]'))()
+   end,
+})
+
+local HubsTab = Window:CreateTab("💠 Hubs", nil) -- Title, Image
+local HubsSection = HubsTab:CreateSection("Hubs")
+
+local HubsButton = HubsTab:CreateButton({
+   Name = "Op Hub script",
+   Callback = function()
+   loadstring(game:HttpGet('https://[Log in to view URL]'))()
+   end,
+})
+
+local Button = HubsTab:CreateButton({
+   Name = "Giga chad hub",
+   Callback = function()
+    loadstring(game:HttpGet('https://[Log in to view URL]'))()
+   end,
+})
+
+local Button = HubsTab:CreateButton({
+   Name = "Universal FE Hub",
+   Callback = function()
+   loadstring(game:HttpGet('https://[Log in to view URL]'))()
+   end,
+})
+
+local UsefulTab = Window:CreateTab("🔥 Useful ", nil) -- Title, Image
+local UsefulSection = UsefulTab:CreateSection("Useful")
+
+local Button = UsefulTab:CreateButton({
+   Name = "Free Emotes | Press , on your keyboard to open",
+   Callback = function()
+   loadstring(game:HttpGetAsync("https://[Log in to view URL]"))()
+   end,
+})
